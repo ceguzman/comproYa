@@ -1,0 +1,43 @@
+enum State{
+	ACTIVE,
+    INACTIVE
+}
+
+entity Customer{
+	documentNumber String  required maxlength(255),
+    firstName String required maxlength(50),
+    firstSurname String required maxlength(50),
+    secondName String  maxlength(50),
+    secondSurname String  maxlength(50),
+}
+
+entity TypeDocument{
+	initials String required  maxlength(20) unique,
+    documentName String  required maxlength(20) unique,
+    stateTypeDocument State required
+}
+
+relationship OneToMany {
+	TypeDocument{customers} to Customer{typeDocument(documentName) required}
+}
+
+entity Sale{
+	codeProduct String required  maxlength(10) unique,
+    nameProduct String required  maxlength(255) unique,
+    date LocalDate required
+}
+
+entity Product {
+	nameProduct String required  maxlength(50),
+    descriptionProduct String required  maxlength(255),
+    productPrice String required  maxlength(50),
+    productAumount String required  maxlength(100)
+}
+
+relationship OneToMany {
+	Customer{sales} to Sale{customer(documentNumber) required}
+}
+
+relationship OneToMany {
+	Sale{products} to Product{sale(codeProduct) required}
+}

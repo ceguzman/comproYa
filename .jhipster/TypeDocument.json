@@ -1,0 +1,41 @@
+{
+  "applications": "*",
+  "changelogDate": "20230408193641",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "type_document",
+  "fields": [
+    {
+      "fieldName": "initials",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength", "unique"],
+      "fieldValidateRulesMaxlength": "20"
+    },
+    {
+      "fieldName": "documentName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength", "unique"],
+      "fieldValidateRulesMaxlength": "20"
+    },
+    {
+      "fieldName": "stateTypeDocument",
+      "fieldType": "State",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "ACTIVE,INACTIVE"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "TypeDocument",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "customer",
+      "otherEntityRelationshipName": "typeDocument",
+      "relationshipName": "customers",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

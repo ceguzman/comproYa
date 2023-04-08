@@ -1,0 +1,87 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-type-document-heading" data-cy="TypeDocumentCreateUpdateHeading">Crear o editar Type Document</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_initials">Initials</label>
+          <input type="text" class="form-control" name="initials" id="field_initials" data-cy="initials" formControlName="initials" />
+          <div *ngIf="editForm.get('initials')!.invalid && (editForm.get('initials')!.dirty || editForm.get('initials')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('initials')?.errors?.required"> Este campo es obligatorio. </small>
+            <small class="form-text text-danger" *ngIf="editForm.get('initials')?.errors?.maxlength">
+              Este campo no puede superar más de 20 caracteres.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_documentName">Document Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="documentName"
+            id="field_documentName"
+            data-cy="documentName"
+            formControlName="documentName"
+          />
+          <div
+            *ngIf="editForm.get('documentName')!.invalid && (editForm.get('documentName')!.dirty || editForm.get('documentName')!.touched)"
+          >
+            <small class="form-text text-danger" *ngIf="editForm.get('documentName')?.errors?.required"> Este campo es obligatorio. </small>
+            <small class="form-text text-danger" *ngIf="editForm.get('documentName')?.errors?.maxlength">
+              Este campo no puede superar más de 20 caracteres.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_stateTypeDocument">State Type Document</label>
+          <select
+            class="form-control"
+            name="stateTypeDocument"
+            formControlName="stateTypeDocument"
+            id="field_stateTypeDocument"
+            data-cy="stateTypeDocument"
+          >
+            <option [ngValue]="null"></option>
+            <option *ngFor="let state of stateValues" [value]="state">state</option>
+          </select>
+          <div
+            *ngIf="
+              editForm.get('stateTypeDocument')!.invalid &&
+              (editForm.get('stateTypeDocument')!.dirty || editForm.get('stateTypeDocument')!.touched)
+            "
+          >
+            <small class="form-text text-danger" *ngIf="editForm.get('stateTypeDocument')?.errors?.required">
+              Este campo es obligatorio.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancelar</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Guardar</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

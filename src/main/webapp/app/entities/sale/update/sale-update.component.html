@@ -1,0 +1,108 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-sale-heading" data-cy="SaleCreateUpdateHeading">Crear o editar Sale</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_codeProduct">Code Product</label>
+          <input
+            type="text"
+            class="form-control"
+            name="codeProduct"
+            id="field_codeProduct"
+            data-cy="codeProduct"
+            formControlName="codeProduct"
+          />
+          <div *ngIf="editForm.get('codeProduct')!.invalid && (editForm.get('codeProduct')!.dirty || editForm.get('codeProduct')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('codeProduct')?.errors?.required"> Este campo es obligatorio. </small>
+            <small class="form-text text-danger" *ngIf="editForm.get('codeProduct')?.errors?.maxlength">
+              Este campo no puede superar más de 10 caracteres.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_nameProduct">Name Product</label>
+          <input
+            type="text"
+            class="form-control"
+            name="nameProduct"
+            id="field_nameProduct"
+            data-cy="nameProduct"
+            formControlName="nameProduct"
+          />
+          <div *ngIf="editForm.get('nameProduct')!.invalid && (editForm.get('nameProduct')!.dirty || editForm.get('nameProduct')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('nameProduct')?.errors?.required"> Este campo es obligatorio. </small>
+            <small class="form-text text-danger" *ngIf="editForm.get('nameProduct')?.errors?.maxlength">
+              Este campo no puede superar más de 255 caracteres.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_date">Date</label>
+          <div class="input-group">
+            <input
+              id="field_date"
+              data-cy="date"
+              type="text"
+              class="form-control"
+              name="date"
+              ngbDatepicker
+              #dateDp="ngbDatepicker"
+              formControlName="date"
+            />
+            <button type="button" class="btn btn-secondary" (click)="dateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+          <div *ngIf="editForm.get('date')!.invalid && (editForm.get('date')!.dirty || editForm.get('date')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('date')?.errors?.required"> Este campo es obligatorio. </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_customer">Customer</label>
+          <select
+            class="form-control"
+            id="field_customer"
+            data-cy="customer"
+            name="customer"
+            formControlName="customer"
+            [compareWith]="compareCustomer"
+          >
+            <option *ngIf="editForm.get(['customer'])!.value == null" [ngValue]="null" selected></option>
+            <option [ngValue]="customerOption" *ngFor="let customerOption of customersSharedCollection">
+              {{ customerOption.documentNumber }}
+            </option>
+          </select>
+        </div>
+        <div *ngIf="editForm.get(['customer'])!.invalid && (editForm.get(['customer'])!.dirty || editForm.get(['customer'])!.touched)">
+          <small class="form-text text-danger" *ngIf="editForm.get(['customer'])?.errors?.required"> Este campo es obligatorio. </small>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancelar</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Guardar</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

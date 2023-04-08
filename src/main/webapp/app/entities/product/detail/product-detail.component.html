@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="product">
+      <h2 data-cy="productDetailsHeading"><span>Product</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ product.id }}</span>
+        </dd>
+        <dt><span>Name Product</span></dt>
+        <dd>
+          <span>{{ product.nameProduct }}</span>
+        </dd>
+        <dt><span>Description Product</span></dt>
+        <dd>
+          <span>{{ product.descriptionProduct }}</span>
+        </dd>
+        <dt><span>Product Price</span></dt>
+        <dd>
+          <span>{{ product.productPrice }}</span>
+        </dd>
+        <dt><span>Product Aumount</span></dt>
+        <dd>
+          <span>{{ product.productAumount }}</span>
+        </dd>
+        <dt><span>Sale</span></dt>
+        <dd>
+          <div *ngIf="product.sale">
+            <a [routerLink]="['/sale', product.sale.id, 'view']">{{ product.sale.codeProduct }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Volver</span>
+      </button>
+
+      <button type="button" [routerLink]="['/product', product.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Editar</span>
+      </button>
+    </div>
+  </div>
+</div>

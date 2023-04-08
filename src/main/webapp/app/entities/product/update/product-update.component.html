@@ -1,0 +1,130 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-product-heading" data-cy="ProductCreateUpdateHeading">Crear o editar Product</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_nameProduct">Name Product</label>
+          <input
+            type="text"
+            class="form-control"
+            name="nameProduct"
+            id="field_nameProduct"
+            data-cy="nameProduct"
+            formControlName="nameProduct"
+          />
+          <div *ngIf="editForm.get('nameProduct')!.invalid && (editForm.get('nameProduct')!.dirty || editForm.get('nameProduct')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('nameProduct')?.errors?.required"> Este campo es obligatorio. </small>
+            <small class="form-text text-danger" *ngIf="editForm.get('nameProduct')?.errors?.maxlength">
+              Este campo no puede superar más de 50 caracteres.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_descriptionProduct">Description Product</label>
+          <input
+            type="text"
+            class="form-control"
+            name="descriptionProduct"
+            id="field_descriptionProduct"
+            data-cy="descriptionProduct"
+            formControlName="descriptionProduct"
+          />
+          <div
+            *ngIf="
+              editForm.get('descriptionProduct')!.invalid &&
+              (editForm.get('descriptionProduct')!.dirty || editForm.get('descriptionProduct')!.touched)
+            "
+          >
+            <small class="form-text text-danger" *ngIf="editForm.get('descriptionProduct')?.errors?.required">
+              Este campo es obligatorio.
+            </small>
+            <small class="form-text text-danger" *ngIf="editForm.get('descriptionProduct')?.errors?.maxlength">
+              Este campo no puede superar más de 255 caracteres.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_productPrice">Product Price</label>
+          <input
+            type="text"
+            class="form-control"
+            name="productPrice"
+            id="field_productPrice"
+            data-cy="productPrice"
+            formControlName="productPrice"
+          />
+          <div
+            *ngIf="editForm.get('productPrice')!.invalid && (editForm.get('productPrice')!.dirty || editForm.get('productPrice')!.touched)"
+          >
+            <small class="form-text text-danger" *ngIf="editForm.get('productPrice')?.errors?.required"> Este campo es obligatorio. </small>
+            <small class="form-text text-danger" *ngIf="editForm.get('productPrice')?.errors?.maxlength">
+              Este campo no puede superar más de 50 caracteres.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_productAumount">Product Aumount</label>
+          <input
+            type="text"
+            class="form-control"
+            name="productAumount"
+            id="field_productAumount"
+            data-cy="productAumount"
+            formControlName="productAumount"
+          />
+          <div
+            *ngIf="
+              editForm.get('productAumount')!.invalid && (editForm.get('productAumount')!.dirty || editForm.get('productAumount')!.touched)
+            "
+          >
+            <small class="form-text text-danger" *ngIf="editForm.get('productAumount')?.errors?.required">
+              Este campo es obligatorio.
+            </small>
+            <small class="form-text text-danger" *ngIf="editForm.get('productAumount')?.errors?.maxlength">
+              Este campo no puede superar más de 100 caracteres.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_sale">Sale</label>
+          <select class="form-control" id="field_sale" data-cy="sale" name="sale" formControlName="sale" [compareWith]="compareSale">
+            <option *ngIf="editForm.get(['sale'])!.value == null" [ngValue]="null" selected></option>
+            <option [ngValue]="saleOption" *ngFor="let saleOption of salesSharedCollection">{{ saleOption.codeProduct }}</option>
+          </select>
+        </div>
+        <div *ngIf="editForm.get(['sale'])!.invalid && (editForm.get(['sale'])!.dirty || editForm.get(['sale'])!.touched)">
+          <small class="form-text text-danger" *ngIf="editForm.get(['sale'])?.errors?.required"> Este campo es obligatorio. </small>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancelar</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Guardar</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

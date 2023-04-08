@@ -1,0 +1,149 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-customer-heading" data-cy="CustomerCreateUpdateHeading">Crear o editar Customer</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_documentNumber">Document Number</label>
+          <input
+            type="text"
+            class="form-control"
+            name="documentNumber"
+            id="field_documentNumber"
+            data-cy="documentNumber"
+            formControlName="documentNumber"
+          />
+          <div
+            *ngIf="
+              editForm.get('documentNumber')!.invalid && (editForm.get('documentNumber')!.dirty || editForm.get('documentNumber')!.touched)
+            "
+          >
+            <small class="form-text text-danger" *ngIf="editForm.get('documentNumber')?.errors?.required">
+              Este campo es obligatorio.
+            </small>
+            <small class="form-text text-danger" *ngIf="editForm.get('documentNumber')?.errors?.maxlength">
+              Este campo no puede superar más de 255 caracteres.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_firstName">First Name</label>
+          <input type="text" class="form-control" name="firstName" id="field_firstName" data-cy="firstName" formControlName="firstName" />
+          <div *ngIf="editForm.get('firstName')!.invalid && (editForm.get('firstName')!.dirty || editForm.get('firstName')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('firstName')?.errors?.required"> Este campo es obligatorio. </small>
+            <small class="form-text text-danger" *ngIf="editForm.get('firstName')?.errors?.maxlength">
+              Este campo no puede superar más de 50 caracteres.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_firstSurname">First Surname</label>
+          <input
+            type="text"
+            class="form-control"
+            name="firstSurname"
+            id="field_firstSurname"
+            data-cy="firstSurname"
+            formControlName="firstSurname"
+          />
+          <div
+            *ngIf="editForm.get('firstSurname')!.invalid && (editForm.get('firstSurname')!.dirty || editForm.get('firstSurname')!.touched)"
+          >
+            <small class="form-text text-danger" *ngIf="editForm.get('firstSurname')?.errors?.required"> Este campo es obligatorio. </small>
+            <small class="form-text text-danger" *ngIf="editForm.get('firstSurname')?.errors?.maxlength">
+              Este campo no puede superar más de 50 caracteres.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_secondName">Second Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="secondName"
+            id="field_secondName"
+            data-cy="secondName"
+            formControlName="secondName"
+          />
+          <div *ngIf="editForm.get('secondName')!.invalid && (editForm.get('secondName')!.dirty || editForm.get('secondName')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('secondName')?.errors?.maxlength">
+              Este campo no puede superar más de 50 caracteres.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_secondSurname">Second Surname</label>
+          <input
+            type="text"
+            class="form-control"
+            name="secondSurname"
+            id="field_secondSurname"
+            data-cy="secondSurname"
+            formControlName="secondSurname"
+          />
+          <div
+            *ngIf="
+              editForm.get('secondSurname')!.invalid && (editForm.get('secondSurname')!.dirty || editForm.get('secondSurname')!.touched)
+            "
+          >
+            <small class="form-text text-danger" *ngIf="editForm.get('secondSurname')?.errors?.maxlength">
+              Este campo no puede superar más de 50 caracteres.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_typeDocument">Type Document</label>
+          <select
+            class="form-control"
+            id="field_typeDocument"
+            data-cy="typeDocument"
+            name="typeDocument"
+            formControlName="typeDocument"
+            [compareWith]="compareTypeDocument"
+          >
+            <option *ngIf="editForm.get(['typeDocument'])!.value == null" [ngValue]="null" selected></option>
+            <option [ngValue]="typeDocumentOption" *ngFor="let typeDocumentOption of typeDocumentsSharedCollection">
+              {{ typeDocumentOption.documentName }}
+            </option>
+          </select>
+        </div>
+        <div
+          *ngIf="
+            editForm.get(['typeDocument'])!.invalid && (editForm.get(['typeDocument'])!.dirty || editForm.get(['typeDocument'])!.touched)
+          "
+        >
+          <small class="form-text text-danger" *ngIf="editForm.get(['typeDocument'])?.errors?.required"> Este campo es obligatorio. </small>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancelar</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Guardar</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
