@@ -1,6 +1,33 @@
+# Integrantes
+
+### Valery Hoyos Arrieta
+### Juan David Laiseca Medina
+### Mary Johanna Gómez Calderón
+### Carlos Esteban Guzmán Baquero
+### Lizeth Yubelly Urrego Sandoval
+
 # comproYa
 
-This application was generated using JHipster 7.9.3, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v7.9.3](https://www.jhipster.tech/documentation-archive/v7.9.3).
+Se presenta un sistema de ventas que utiliza tecnologías de vanguardia para su desarrollo. 
+Se describe el proceso para crear una aplicación mediante Java y el framework Spring Boot para el Backend,
+y Angular con Typescript, HTML y CSS para el Frontend. El motor de base de datos utilizado es PostgreSQL,
+se emplearán pruebas unitarias tipo Junit para garantizar la calidad del software.
+La combinación de Angular con Typescript, HTML y CSS permitirá crear una experiencia de usuario atractiva 
+y fácil de usar. Los estilos CSS se utilizarán para dar formato y presentación a los elementos visuales 
+de la aplicación, mientras que HTML se utilizará para estructurar el contenido de la página y definir 
+la interfaz de usuario.
+En definitiva, el Frontend de este sistema de ventas será una parte fundamental del desarrollo
+del software, ya que será el medio a través del cual los usuarios interactuarán con la
+aplicación. Por ello, se prestará especial atención a la creación de una interfaz de usuario
+amigable, intuitiva y eficiente para que los usuarios puedan realizar sus tareas de manera
+rápida y sencilla.
+La arquitectura de este sistema estará orientada a servicios REST, lo que permitirá una
+integración fácil y eficiente de los diferentes componentes. Además, se llevarán a cabo
+pruebas automáticas para detectar fallos de manera temprana y asegurar la robustez del
+sistema.
+En resumen, este sistema de ventas es una solución completa y moderna que combina lo
+mejor de las tecnologías actuales para garantizar la calidad y eficiencia del software
+desarrollado
 
 ## Project Structure
 
