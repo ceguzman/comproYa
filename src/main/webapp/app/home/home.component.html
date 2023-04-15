@@ -8,6 +8,8 @@
 
     <p class="lead">Esta es su página de inicio</p>
 
+    <p>ComproYa es una empresa líder en el mercado de compras en línea, que se especializa en ofrecer una amplia gama de productos de alta calidad a precios competitivos. Nuestra plataforma de compras en línea es fácil de usar y está diseñada para hacer que la experiencia de compra sea rápida y sencilla para nuestros clientes. </p>
+    <p>En ComproYa, valoramos la satisfacción del cliente por encima de todo y nos esforzamos por proporcionar un servicio excepcional en todo momento. Contamos con un equipo de atención al cliente altamente capacitado y amigable que está siempre dispuesto a ayudar a resolver cualquier problema que puedan tener nuestros clientes.</p>
     <div [ngSwitch]="account !== null">
       <div class="alert alert-success" *ngSwitchCase="true">
         <span id="home-logged-message" *ngIf="account">Está conectado como "{{ account.login }}".</span>
@@ -17,9 +19,9 @@
         <span>Si desea </span>
         <a class="alert-link" (click)="login()">iniciar sesión</a
         ><span
-          >, puede intentar con las cuentas predeterminadas:<br />- Administrador (usuario="admin" y contraseña="admin") <br />- Usuario
+      >, puede intentar con las cuentas predeterminadas:<br />- Administrador (usuario="admin" y contraseña="admin") <br />- Usuario
           (usuario="user" y contraseña="user").</span
-        >
+      >
       </div>
 
       <div class="alert alert-warning" *ngSwitchCase="false">
