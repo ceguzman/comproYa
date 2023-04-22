@@ -14,23 +14,28 @@
         <dd>
           <span>{{ product.id }}</span>
         </dd>
-        <dt><span>Name Product</span></dt>
+        <dt><span>Nombre del producto</span></dt>
         <dd>
           <span>{{ product.nameProduct }}</span>
         </dd>
-        <dt><span>Description Product</span></dt>
+        <dt><span>Imagen del producto</span></dt>
+        <dd>
+          <span><img src="https://cdn-icons-png.flaticon.com/512/1554/1554591.png" alt="producto"
+                     width="256" height="256"></span>
+        </dd>
+        <dt><span>Descripción del producto</span></dt>
         <dd>
           <span>{{ product.descriptionProduct }}</span>
         </dd>
-        <dt><span>Product Price</span></dt>
+        <dt><span>Precio del producto</span></dt>
         <dd>
           <span>{{ product.productPrice }}</span>
         </dd>
-        <dt><span>Product Aumount</span></dt>
+        <dt><span>Cantidad de productos</span></dt>
         <dd>
           <span>{{ product.productAumount }}</span>
         </dd>
-        <dt><span>Sale</span></dt>
+        <dt><span>Venta</span></dt>
         <dd>
           <div *ngIf="product.sale">
             <a [routerLink]="['/sale', product.sale.id, 'view']">{{ product.sale.codeProduct }}</a>
