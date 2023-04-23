@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-center">
   <div class="col-8">
     <div *ngIf="sale">
-      <h2 data-cy="saleDetailsHeading"><span>Sale</span></h2>
+      <h2 data-cy="saleDetailsHeading"><span>Venta</span></h2>
 
       <hr />
 
@@ -14,19 +14,19 @@
         <dd>
           <span>{{ sale.id }}</span>
         </dd>
-        <dt><span>Code Product</span></dt>
+        <dt><span>Codigo del producto</span></dt>
         <dd>
           <span>{{ sale.codeProduct }}</span>
         </dd>
-        <dt><span>Name Product</span></dt>
+        <dt><span>Nombre Producto</span></dt>
         <dd>
           <span>{{ sale.nameProduct }}</span>
         </dd>
-        <dt><span>Date</span></dt>
+        <dt><span>Fecha</span></dt>
         <dd>
           <span>{{ sale.date | formatMediumDate }}</span>
         </dd>
-        <dt><span>Customer</span></dt>
+        <dt><span>Cliente</span></dt>
         <dd>
           <div *ngIf="sale.customer">
             <a [routerLink]="['/customer', sale.customer.id, 'view']">{{ sale.customer.documentNumber }}</a>

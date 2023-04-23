@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-center">
   <div class="col-8">
     <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-      <h2 id="jhi-customer-heading" data-cy="CustomerCreateUpdateHeading">Crear o editar Customer</h2>
+      <h2 id="jhi-customer-heading" data-cy="CustomerCreateUpdateHeading">Crear o editar Cliente</h2>
 
       <div>
         <jhi-alert-error></jhi-alert-error>
@@ -12,7 +12,7 @@
         </div>
 
         <div class="row mb-3">
-          <label class="form-label" for="field_documentNumber">Document Number</label>
+          <label class="form-label" for="field_documentNumber">Numero Documento</label>
           <input
             type="text"
             class="form-control"
@@ -36,7 +36,7 @@
         </div>
 
         <div class="row mb-3">
-          <label class="form-label" for="field_firstName">First Name</label>
+          <label class="form-label" for="field_firstName">Primer Nombre</label>
           <input type="text" class="form-control" name="firstName" id="field_firstName" data-cy="firstName" formControlName="firstName" />
           <div *ngIf="editForm.get('firstName')!.invalid && (editForm.get('firstName')!.dirty || editForm.get('firstName')!.touched)">
             <small class="form-text text-danger" *ngIf="editForm.get('firstName')?.errors?.required"> Este campo es obligatorio. </small>
@@ -47,7 +47,7 @@
         </div>
 
         <div class="row mb-3">
-          <label class="form-label" for="field_firstSurname">First Surname</label>
+          <label class="form-label" for="field_firstSurname">Primer Apellido</label>
           <input
             type="text"
             class="form-control"
@@ -67,7 +67,7 @@
         </div>
 
         <div class="row mb-3">
-          <label class="form-label" for="field_secondName">Second Name</label>
+          <label class="form-label" for="field_secondName">Segundo Nombre</label>
           <input
             type="text"
             class="form-control"
@@ -84,7 +84,7 @@
         </div>
 
         <div class="row mb-3">
-          <label class="form-label" for="field_secondSurname">Second Surname</label>
+          <label class="form-label" for="field_secondSurname">Segundo Apellido</label>
           <input
             type="text"
             class="form-control"
@@ -105,7 +105,7 @@
         </div>
 
         <div class="row mb-3">
-          <label class="form-label" for="field_typeDocument">Type Document</label>
+          <label class="form-label" for="field_typeDocument">Tipo Documento</label>
           <select
             class="form-control"
             id="field_typeDocument"

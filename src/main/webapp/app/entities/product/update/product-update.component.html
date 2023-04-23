@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-center">
   <div class="col-8">
     <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-      <h2 id="jhi-product-heading" data-cy="ProductCreateUpdateHeading">Crear o editar Product</h2>
+      <h2 id="jhi-product-heading" data-cy="ProductCreateUpdateHeading">Crear o editar Producto</h2>
 
       <div>
         <jhi-alert-error></jhi-alert-error>
@@ -12,7 +12,7 @@
         </div>
 
         <div class="row mb-3">
-          <label class="form-label" for="field_nameProduct">Name Product</label>
+          <label class="form-label" for="field_nameProduct">Nombre del Producto</label>
           <input
             type="text"
             class="form-control"
@@ -30,7 +30,7 @@
         </div>
 
         <div class="row mb-3">
-          <label class="form-label" for="field_descriptionProduct">Description Product</label>
+          <label class="form-label" for="field_descriptionProduct">Descripción del producto</label>
           <input
             type="text"
             class="form-control"
@@ -55,7 +55,7 @@
         </div>
 
         <div class="row mb-3">
-          <label class="form-label" for="field_productPrice">Product Price</label>
+          <label class="form-label" for="field_productPrice">Precio del producto</label>
           <input
             type="text"
             class="form-control"
@@ -75,7 +75,7 @@
         </div>
 
         <div class="row mb-3">
-          <label class="form-label" for="field_productAumount">Product Aumount</label>
+          <label class="form-label" for="field_productAumount">Cantidad de Productos</label>
           <input
             type="text"
             class="form-control"
@@ -99,7 +99,7 @@
         </div>
 
         <div class="row mb-3">
-          <label class="form-label" for="field_sale">Sale</label>
+          <label class="form-label" for="field_sale">Venta</label>
           <select class="form-control" id="field_sale" data-cy="sale" name="sale" formControlName="sale" [compareWith]="compareSale">
             <option *ngIf="editForm.get(['sale'])!.value == null" [ngValue]="null" selected></option>
             <option [ngValue]="saleOption" *ngFor="let saleOption of salesSharedCollection">{{ saleOption.codeProduct }}</option>

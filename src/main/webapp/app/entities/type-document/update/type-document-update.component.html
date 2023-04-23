@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-center">
   <div class="col-8">
     <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-      <h2 id="jhi-type-document-heading" data-cy="TypeDocumentCreateUpdateHeading">Crear o editar Type Document</h2>
+      <h2 id="jhi-type-document-heading" data-cy="TypeDocumentCreateUpdateHeading">Crear o editar Tipo Documento</h2>
 
       <div>
         <jhi-alert-error></jhi-alert-error>
@@ -12,7 +12,7 @@
         </div>
 
         <div class="row mb-3">
-          <label class="form-label" for="field_initials">Initials</label>
+          <label class="form-label" for="field_initials">Iniciales</label>
           <input type="text" class="form-control" name="initials" id="field_initials" data-cy="initials" formControlName="initials" />
           <div *ngIf="editForm.get('initials')!.invalid && (editForm.get('initials')!.dirty || editForm.get('initials')!.touched)">
             <small class="form-text text-danger" *ngIf="editForm.get('initials')?.errors?.required"> Este campo es obligatorio. </small>
@@ -23,7 +23,7 @@
         </div>
 
         <div class="row mb-3">
-          <label class="form-label" for="field_documentName">Document Name</label>
+          <label class="form-label" for="field_documentName">Nombre Documento</label>
           <input
             type="text"
             class="form-control"
@@ -43,7 +43,7 @@
         </div>
 
         <div class="row mb-3">
-          <label class="form-label" for="field_stateTypeDocument">State Type Document</label>
+          <label class="form-label" for="field_stateTypeDocument">Estado Tipo Documento</label>
           <select
             class="form-control"
             name="stateTypeDocument"
@@ -52,7 +52,7 @@
             data-cy="stateTypeDocument"
           >
             <option [ngValue]="null"></option>
-            <option *ngFor="let state of stateValues" [value]="state">state</option>
+            <option *ngFor="let state of stateValues" [value]="state">{{state}}</option>
           </select>
           <div
             *ngIf="

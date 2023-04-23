@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-center">
   <div class="col-8">
     <div *ngIf="customer">
-      <h2 data-cy="customerDetailsHeading"><span>Customer</span></h2>
+      <h2 data-cy="customerDetailsHeading"><span>Cliente</span></h2>
 
       <hr />
 
@@ -14,27 +14,27 @@
         <dd>
           <span>{{ customer.id }}</span>
         </dd>
-        <dt><span>Document Number</span></dt>
+        <dt><span>Numero Documento</span></dt>
         <dd>
           <span>{{ customer.documentNumber }}</span>
         </dd>
-        <dt><span>First Name</span></dt>
+        <dt><span>Primer Nombre</span></dt>
         <dd>
           <span>{{ customer.firstName }}</span>
         </dd>
-        <dt><span>First Surname</span></dt>
+        <dt><span>Primer Apellido</span></dt>
         <dd>
           <span>{{ customer.firstSurname }}</span>
         </dd>
-        <dt><span>Second Name</span></dt>
+        <dt><span>Segundo Apellido</span></dt>
         <dd>
           <span>{{ customer.secondName }}</span>
         </dd>
-        <dt><span>Second Surname</span></dt>
+        <dt><span>Segundo Nombre</span></dt>
         <dd>
           <span>{{ customer.secondSurname }}</span>
         </dd>
-        <dt><span>Type Document</span></dt>
+        <dt><span>Tipo Documento</span></dt>
         <dd>
           <div *ngIf="customer.typeDocument">
             <a [routerLink]="['/type-document', customer.typeDocument.id, 'view']">{{ customer.typeDocument.documentName }}</a>

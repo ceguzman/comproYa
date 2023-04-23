@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-center">
   <div class="col-8">
     <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-      <h2 id="jhi-sale-heading" data-cy="SaleCreateUpdateHeading">Crear o editar Sale</h2>
+      <h2 id="jhi-sale-heading" data-cy="SaleCreateUpdateHeading">Crear o editar Venta</h2>
 
       <div>
         <jhi-alert-error></jhi-alert-error>
@@ -12,7 +12,7 @@
         </div>
 
         <div class="row mb-3">
-          <label class="form-label" for="field_codeProduct">Code Product</label>
+          <label class="form-label" for="field_codeProduct">Codigo Producto</label>
           <input
             type="text"
             class="form-control"
@@ -30,7 +30,7 @@
         </div>
 
         <div class="row mb-3">
-          <label class="form-label" for="field_nameProduct">Name Product</label>
+          <label class="form-label" for="field_nameProduct">Nombre Producto</label>
           <input
             type="text"
             class="form-control"
@@ -48,7 +48,7 @@
         </div>
 
         <div class="row mb-3">
-          <label class="form-label" for="field_date">Date</label>
+          <label class="form-label" for="field_date">Fecha</label>
           <div class="input-group">
             <input
               id="field_date"
@@ -68,7 +68,7 @@
         </div>
 
         <div class="row mb-3">
-          <label class="form-label" for="field_customer">Customer</label>
+          <label class="form-label" for="field_customer">Cliente</label>
           <select
             class="form-control"
             id="field_customer"

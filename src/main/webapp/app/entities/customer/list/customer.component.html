@@ -1,6 +1,6 @@
 <div>
   <h2 id="page-heading" data-cy="CustomerHeading">
-    <span>Customers</span>
+    <span>Cliente</span>
 
     <div class="d-flex justify-content-end">
       <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
@@ -15,7 +15,7 @@
         [routerLink]="['/customer/new']"
       >
         <fa-icon icon="plus"></fa-icon>
-        <span> Crear nuevo Customer </span>
+        <span> Crear nuevo Cliente </span>
       </button>
     </div>
   </h2>
@@ -25,7 +25,7 @@
   <jhi-alert></jhi-alert>
 
   <div class="alert alert-warning" id="no-result" *ngIf="customers?.length === 0">
-    <span>Ningún Customers encontrado</span>
+    <span>Ningún Cliente encontrado</span>
   </div>
 
   <div class="table-responsive table-entities" id="entities" *ngIf="customers && customers.length > 0">
@@ -40,37 +40,37 @@
           </th>
           <th scope="col" jhiSortBy="documentNumber">
             <div class="d-flex">
-              <span>Document Number</span>
+              <span>Numero de docuemento</span>
               <fa-icon class="p-1" icon="sort"></fa-icon>
             </div>
           </th>
           <th scope="col" jhiSortBy="firstName">
             <div class="d-flex">
-              <span>First Name</span>
+              <span>Primer Nombre</span>
               <fa-icon class="p-1" icon="sort"></fa-icon>
             </div>
           </th>
           <th scope="col" jhiSortBy="firstSurname">
             <div class="d-flex">
-              <span>First Surname</span>
+              <span>Primer Apellido</span>
               <fa-icon class="p-1" icon="sort"></fa-icon>
             </div>
           </th>
           <th scope="col" jhiSortBy="secondName">
             <div class="d-flex">
-              <span>Second Name</span>
+              <span>Segundo Nombre</span>
               <fa-icon class="p-1" icon="sort"></fa-icon>
             </div>
           </th>
           <th scope="col" jhiSortBy="secondSurname">
             <div class="d-flex">
-              <span>Second Surname</span>
+              <span>Segundo Apellido</span>
               <fa-icon class="p-1" icon="sort"></fa-icon>
             </div>
           </th>
           <th scope="col" jhiSortBy="typeDocument.documentName">
             <div class="d-flex">
-              <span>Type Document</span>
+              <span>Tipo Documento</span>
               <fa-icon class="p-1" icon="sort"></fa-icon>
             </div>
           </th>
