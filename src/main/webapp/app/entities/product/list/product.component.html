@@ -76,7 +76,12 @@
           <td>
             <a [routerLink]="['/product', product.id, 'view']">{{ product.id }}</a>
           </td>
-          <td>{{ product.nameProduct }}</td>
+          <td>{{ product.nameProduct }}
+            <span>
+              <img src="https://cdn-icons-png.flaticon.com/512/94/94225.png" alt="producto"
+                       width="128" height="128">
+            </span>
+          </td>
           <td>{{ product.descriptionProduct }}</td>
           <td>{{ product.productPrice }}</td>
           <td>{{ product.productAumount }}</td>
